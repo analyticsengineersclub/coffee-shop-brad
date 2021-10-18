@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: customers
+    description: Cleaned up data for our customers
+    columns:
+      - name: customer_id
+        description: Primary key of model
+        tests:
+          - unique
+          - not_null
+  - name: monthly_customers
+    description: Total customers each month
+    columns:
+      - name: signup_month
+        description: Primary key and month the customer first signed up
+        tests:
+          - unique
+          - not_null
+          #-check_date_format
