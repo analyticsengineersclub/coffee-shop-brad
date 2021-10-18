@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: coffee_shop
     description: this is the raw data from the postgres database. 
-    project: aec-2021-10-thursdays
+    project: analytics-engineers-club
     #this does not work because data not loaded daily
     # freshness:
     #     error_after:
