@@ -1,4 +1,6 @@
-
+{{config(
+    materialized='table'
+) }}
 select c.id as customer_id
 , c.name
 , c.email 
