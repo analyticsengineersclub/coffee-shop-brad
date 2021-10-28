@@ -23,3 +23,22 @@ sources:
             tests:
               - unique
               - not_null
+      - name: order_items
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: products
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: product_prices
+        description: "this table has product prices and the dates the prices were valid"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
