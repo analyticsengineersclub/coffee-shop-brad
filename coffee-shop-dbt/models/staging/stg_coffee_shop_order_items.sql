@@ -1,6 +1,7 @@
 
 
-select o.order_id
+select oi.id as order_item_id
+    , o.order_id
     , o.order_created_at
     , p.product_id
     , p.product_name
