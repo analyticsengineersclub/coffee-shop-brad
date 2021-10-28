@@ -13,6 +13,7 @@ select c.customer_id
         when order_created_at > first_order_at then FALSE
         else null 
       end as is_new_customer
+    , row_number() over(partition by c.customer_id order by o.order_created_at) as order_number
 from {{ ref('stg_coffee_shop_customers') }} as c
 join {{ ref('stg_coffee_shop_orders') }} as o 
     on c.customer_id = o.customer_id
