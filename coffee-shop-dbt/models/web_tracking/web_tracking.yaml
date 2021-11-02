@@ -9,3 +9,7 @@ models:
         tests:
           - unique
           - not_null
+      - name: customer_id
+        description: the customer id after they log in 
+        tests:
+          - not_null
