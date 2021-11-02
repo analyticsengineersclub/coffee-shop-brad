@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: pageviews
+    description: 'Tracking web page views'
+    columns:
+      - name: pageview_id
+        description: Primary key of model
+        tests:
+          - unique
+          - not_null
