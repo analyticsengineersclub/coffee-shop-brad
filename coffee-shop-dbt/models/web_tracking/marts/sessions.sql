@@ -7,6 +7,10 @@ select
     , pageviews.customer_id
     , sessions.visitor_session_id 
     , sessions.session_start_at
+    , MAX(pageviews.timestamp) over(partition by pageviews.visitor_id, sessions.visitor_session_id) as session_end_at
+    , CASE WHEN 
+        row_number() over(partition by pageviews.visitor_id, sessions.visitor_session_id order by pageviews.timestamp) = 1 
+        THEN 1 ELSE 0 END AS is_new_session
 FROM {{ ref('pageviews') }} as pageviews 
 LEFT JOIN {{ ref('stg_sessions')}} as sessions
     ON pageviews.visitor_id = sessions.visitor_id
