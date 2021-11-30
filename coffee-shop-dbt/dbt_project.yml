@@ -34,3 +34,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   coffee_shop:
     materialized: view
+
+
+#github set up 
+vars:
+  github_source:
+    github_database: analytics-engineers-club
+    github_schema: github
+  github__using_repo_team: false # by default this is assumed to be true

@@ -17,12 +17,18 @@ sources:
             tests:
               - unique
               - not_null
+          - name: email
+            tests:
+              - email_format
       - name: orders
         columns:
           - name: id
             tests:
               - unique
               - not_null
+          - name: total
+            tests:
+              - greater_than_zero
       - name: order_items
         columns:
           - name: id
@@ -42,3 +48,9 @@ sources:
             tests:
               - unique
               - not_null
+        tests:
+          - dbt_utils.mutually_exclusive_ranges:
+              lower_bound_column: product_price_started_at
+              upper_bound_column: product_price_ended_at
+              partition_by: product_id
+              gaps: required

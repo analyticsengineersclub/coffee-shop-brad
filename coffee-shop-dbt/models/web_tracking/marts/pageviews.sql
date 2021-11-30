@@ -6,5 +6,5 @@ select
     , pageviews.pagename 
     , vc_map.customer_id
 from {{ ref('stg_pageviews') }} as pageviews 
-join {{ ref('stg_vistor_customer_map') }} as vc_map
+left join {{ ref('stg_vistor_customer_map') }} as vc_map
     on pageviews.visitor_id = vc_map.visitor_id

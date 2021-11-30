@@ -9,6 +9,16 @@ models:
         tests:
           - unique
           - not_null
+      - name: email
+        tests:
+          - email_format
+  - name: stg_coffee_shop_product_prices
+    tests:
+     - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: product_price_started_at
+          upper_bound_column: product_price_ended_at
+          partition_by: product_id
+          gaps: required
   - name: monthly_customers
     description: Total customers each month
     columns:
